@@ -1,6 +1,6 @@
 {
-  "name": "eslint-config-typescript-base",
-  "version": "1.0.1",
+  "name": "@alextheman/eslint-config-typescript-base",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
