@@ -1,5 +1,5 @@
 const js = require("@eslint/js");
-const tseslint = require("@typescript-eslint/eslint-plugin");
+const eslintPlugin = require("@typescript-eslint/eslint-plugin");
 const tsparser = require("@typescript-eslint/parser");
 const importPlugin = require("eslint-plugin-import");
 
@@ -20,7 +20,7 @@ module.exports = [
       },
     },
     ignores: ["dist"],
-    plugins: { "@typescript-eslint": tseslint, import: importPlugin },
+    plugins: { "@typescript-eslint": eslintPlugin, import: importPlugin },
     rules: {
       "import/no-unresolved": warnOnFixButErrorOnLint,
       eqeqeq: warnOnFixButErrorOnLint,
