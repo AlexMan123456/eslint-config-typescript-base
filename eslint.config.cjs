@@ -1,0 +1,63 @@
+const js = require("@eslint/js");
+const tseslint = require("@typescript-eslint/eslint-plugin");
+const tsparser = require("@typescript-eslint/parser");
+const importPlugin = require("eslint-plugin-import");
+
+const warnOnFixButErrorOnLint =
+  // eslint-disable-next-line no-undef
+  process.env.ESLINT_MODE === "fix" ? "warn" : "error";
+
+module.exports = [
+  js.configs.recommended,
+  {
+    name: "@alextheman/eslint-config-typescript-base",
+    files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
+    languageOptions: {
+      parser: tsparser,
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+      },
+    },
+    ignores: ["dist"],
+    plugins: { "@typescript-eslint": tseslint, import: importPlugin },
+    rules: {
+      "import/no-unresolved": warnOnFixButErrorOnLint,
+      eqeqeq: warnOnFixButErrorOnLint,
+      "no-console": "warn",
+      "no-restricted-imports": [
+        warnOnFixButErrorOnLint,
+        {
+          paths: [
+            {
+              name: "@mui/material",
+              message:
+                'Please use `import Component from "@mui/material/Component"` instead. See https://mui.com/material-ui/guides/minimizing-bundle-size/ for more information.',
+            },
+          ],
+          patterns: [
+            {
+              group: ["./", "../"],
+              message: "Relative imports are not allowed",
+            },
+          ],
+        },
+      ],
+      "@typescript-eslint/no-unused-vars": [
+        warnOnFixButErrorOnLint,
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+          caughtErrorsIgnorePattern: "^_",
+        },
+      ],
+      "func-style": ["error", "declaration", { allowArrowFunctions: false }],
+      "prefer-arrow-callback": ["error", { allowNamedFunctions: false }],
+      "no-param-reassign": "error",
+      "no-useless-rename": "error",
+      "sort-vars": "error",
+      "no-cond-assign": "error",
+      "no-undef": warnOnFixButErrorOnLint,
+    },
+  },
+];
