@@ -3,6 +3,7 @@ const eslintPlugin = require("@typescript-eslint/eslint-plugin");
 const tsparser = require("@typescript-eslint/parser");
 const importPlugin = require("eslint-plugin-import");
 const globals = require("globals");
+const alexPlugin = require("@alextheman/eslint-plugin");
 
 const warnOnFixButErrorOnLint =
   // eslint-disable-next-line no-undef
@@ -31,7 +32,11 @@ module.exports = [
       },
     },
     ignores: ["dist"],
-    plugins: { "@typescript-eslint": eslintPlugin, import: importPlugin },
+    plugins: {
+      "@typescript-eslint": eslintPlugin,
+      import: importPlugin,
+      "@alextheman": alexPlugin,
+    },
     rules: {
       "import/no-unresolved": warnOnFixButErrorOnLint,
       eqeqeq: warnOnFixButErrorOnLint,
@@ -71,6 +76,7 @@ module.exports = [
       "sort-vars": "error",
       "no-cond-assign": "error",
       "no-undef": warnOnFixButErrorOnLint,
+      "@alextheman/no-namespace-imports": "error",
     },
   },
 ];
