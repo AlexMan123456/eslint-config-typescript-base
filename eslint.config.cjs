@@ -5,14 +5,12 @@ const importPlugin = require("eslint-plugin-import");
 const globals = require("globals");
 
 const warnOnFixButErrorOnLint =
-  // eslint-disable-next-line no-undef
   process.env.ESLINT_MODE === "fix" ? "warn" : "error";
 
 module.exports = [
   js.configs.recommended,
   {
     name: "@alextheman/eslint-config-typescript-base",
-    files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
     languageOptions: {
       parser: tsparser,
       parserOptions: {
