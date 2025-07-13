@@ -2,6 +2,7 @@ const js = require("@eslint/js");
 const eslintPlugin = require("@typescript-eslint/eslint-plugin");
 const tsparser = require("@typescript-eslint/parser");
 const importPlugin = require("eslint-plugin-import");
+const globals = require("globals");
 
 const warnOnFixButErrorOnLint =
   // eslint-disable-next-line no-undef
@@ -17,6 +18,10 @@ module.exports = [
       parserOptions: {
         ecmaVersion: "latest",
         sourceType: "module",
+      },
+      globals: {
+        ...globals.jest,
+        ...globals.node,
       },
     },
     settings: {
