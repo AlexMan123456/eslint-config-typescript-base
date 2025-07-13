@@ -19,6 +19,12 @@ module.exports = [
         sourceType: "module",
       },
     },
+    settings: {
+      "import/resolver": {
+        typescript: true,
+        node: true,
+      },
+    },
     ignores: ["dist"],
     plugins: { "@typescript-eslint": eslintPlugin, import: importPlugin },
     rules: {
