@@ -51,6 +51,8 @@ module.exports = [
           caughtErrorsIgnorePattern: "^_",
         },
       ],
+      // Disable regular no-unused-vars rule since that will flag interface declarations. Only use the TypeScript specific rule for this.
+      "no-unused-vars": "off",
       "func-style": ["error", "declaration", { allowArrowFunctions: false }],
       "prefer-arrow-callback": ["error", { allowNamedFunctions: false }],
       "no-param-reassign": "error",
