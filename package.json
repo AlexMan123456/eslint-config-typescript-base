@@ -1,6 +1,6 @@
 {
   "name": "@alextheman/eslint-config-typescript-base",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "",
   "main": "eslint.config.cjs",
   "scripts": {
