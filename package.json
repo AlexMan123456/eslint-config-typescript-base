@@ -8,7 +8,10 @@
     "format": "prettier --write '*.{cjs,json}' && ESLINT_MODE=fix eslint --fix '*.{cjs,json}'",
     "lint": "ESLINT_MODE=lint eslint '*.{cjs,json}' && prettier --check '*.{cjs,json}'",
     "prepare": "husky",
-    "update-dependencies": "npx npm-check-updates -u && npm install"
+    "update-dependencies": "npx npm-check-updates -u && npm install",
+    "change-major": "npm version major -m \"Change version number to v%s\"",
+    "change-minor": "npm version minor -m \"Change version number to v%s\"",
+    "change-patch": "npm version patch -m \"Change version number to v%s\""
   },
   "keywords": [],
   "author": "",
