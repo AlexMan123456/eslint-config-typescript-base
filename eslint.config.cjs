@@ -23,6 +23,7 @@ module.exports = [
       globals: {
         ...globals.jest,
         ...globals.node,
+        ...globals.browser,
       },
     },
     settings: {
